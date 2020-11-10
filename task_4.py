@@ -14,3 +14,18 @@
 
 Элемент в 2 раза меньше предыд и имеет противопол знак
 """
+
+
+def sum(n, start_num=1):
+    if n == 1:
+        return start_num
+    n -= 1
+    return start_num + sum(n, start_num * -0.5)
+
+
+try:
+    count = int(input("введите количество элементов-> "))
+    print(f"сумма элеметов = {sum(count)}")
+except ValueError:
+    print('работает только с числами')
+

@@ -9,3 +9,26 @@
 Для оценки Отлично в этом блоке необходимо выполнить 5 заданий из 7
 Для оценки Отлично в этом блоке необходимо выполнить 5 заданий из 7
 """
+
+from random import randint
+
+
+def game_num(num=randint(1,100), count=9):
+    try:
+        print(f"у вас осталось {11 - count} попыток")
+        my_num = int(input("введите число от 1 до 100 "))
+        if my_num == num:
+            return print(f"ПОБЕДА!!! тебе понадобилось {count} попыток")
+        elif count > 10:
+            return print(f"ты проиграл было загадано число {num}")
+        elif my_num < num:
+            print(f"твое число меньше")
+            return game_num(num, count + 1)
+        else:
+            print(f"твое число больше")
+            return game_num(num, count + 1)
+    except ValueError:
+        print("принимаются только числа от 1 до 100")
+
+
+game_num()

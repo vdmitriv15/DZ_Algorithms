@@ -21,3 +21,15 @@
 Допускается исп-е встроенных ф-ций
 """
 
+
+def num_to_symbol(n=32, count=1):
+    if n == 127:
+        return chr(n)
+    elif count % 10 == 0:
+        count += 1
+        return f'{n} - {chr(n)}\n{num_to_symbol(n + 1, count)}'
+    count += 1
+    return f'{n} - {chr(n)} {num_to_symbol(n + 1, count)}'
+
+
+print(num_to_symbol())

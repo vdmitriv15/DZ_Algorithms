@@ -16,3 +16,19 @@
 Введите число, которое требуется перевернуть: 123
 Перевернутое число: 321
 """
+
+
+def mirror_number(number):
+    numbers = '0123456789'
+    if number < 10:
+        return numbers[number]
+    return numbers[number % 10] + mirror_number(number // 10)
+
+
+try:
+    number = int(input('введите число _ '))
+    print(mirror_number(number))
+except ValueError:
+    print('работает только с числами')
+
+

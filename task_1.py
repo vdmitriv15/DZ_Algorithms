@@ -26,5 +26,39 @@
 Введите операцию (+, -, *, / или 0 для выхода): -
 Введите первое число: вп
 Вы вместо трехзначного числа ввели строку (((. Исправьтесь
-Введите операцию (+, -, *, / или 0 для выхода):
+Введите операцию (+, - ,*, / или 0 для выхода):
 """
+
+
+def calculator(operator=0, first_num=0, second_num=0, count=1):
+    operator = input("Введите операцию (+, - ,*, / или 0 для выхода): ")
+    try:
+        if count == 1:
+            first_num = int(input("Введите первое число "))
+            second_num = int(input("Введите второе число "))
+        else:
+            second_num = int(input("Введите второе число "))
+        if operator == "0":
+            return print(f"= {first_num}")
+        elif operator == "+":
+            print(f"= {first_num + second_num}")
+            return calculator(operator, first_num+second_num, second_num, count+1)
+        elif operator == "-":
+            print(f"= {first_num - second_num}")
+            return calculator(operator, first_num - second_num, second_num, count+1)
+        elif operator == "*":
+            print(f"= {first_num * second_num}")
+            return calculator(operator, first_num*second_num, second_num, count+1)
+        elif operator == "/":
+            print(f"= {first_num / second_num}")
+            return calculator(operator, first_num/second_num, second_num, count+1)
+    except ValueError:
+        print("Вы вместо числа ввели строку")
+    except ZeroDivisionError:
+        print("Вы пытаетесь разделить на ноль")
+
+
+"""operator = input("Введите операцию (+, - ,*, / или 0 для выхода): ")
+first_num = int(input("Введите первое число "))
+second_num = int(input("Введите второе число "))"""
+calculator()
